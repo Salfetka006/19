@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 380px;
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+.display {
+    height: 140px;
+    padding: 30px 20px;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    border-bottom: 1px solid #333;
+    margin-bottom: 15px;
+}
+
+.previous-operand {
+    color: #888;
+    font-size: 1.1rem;
+    min-height: 1.5rem;
+    margin-bottom: 8px;
+    font-weight: 300;
+}
+
+.current-operand {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    border: none;
+    border-radius: 12px;
+    height: 65px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    outline: none;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.number {
+    background: #333;
+    color: white;
+}
+
+.number:hover {
+    background: #444;
+}
+
+.operation {
+    background: #a5a5a5;
+    color: #000;
+    font-weight: 500;
+}
+
+.operation:hover {
+    background: #b5b5b5;
+}
+
+.operation[data-operation="/"],
+.operation[data-operation="*"],
+.operation[data-operation="-"],
+.operation[data-operation="+"] {
+    background: #ff9500;
+    color: white;
+}
+
+.operation[data-operation="/"]:hover,
+.operation[data-operation="*"]:hover,
+.operation[data-operation="-"]:hover,
+.operation[data-operation="+"]:hover {
+    background: #ffaa33;
+}
+
+.clear, .delete {
+    background: #a5a5a5;
+    color: #000;
+    font-weight: 500;
+}
+
+.clear:hover, .delete:hover {
+    background: #b5b5b5;
+}
+
+.info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.info p {
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+}
+
+.operation[data-operation="sin"],
+.operation[data-operation="cos"],
+.operation[data-operation="tg"],
+.operation[data-operation="ctg"],
+.operation[data-operation="!"],
+.operation[data-operation="fib"],
+.operation[data-operation="^"],
+.operation[data-operation="sqrt"],
+.operation[data-operation="exp"],
+.operation[data-operation="^2"] {
+    background: #007aff;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.operation[data-operation="sin"]:hover,
+.operation[data-operation="cos"]:hover,
+.operation[data-operation="tg"]:hover,
+.operation[data-operation="ctg"]:hover,
+.operation[data-operation="!"]:hover,
+.operation[data-operation="fib"]:hover,
+.operation[data-operation="^"]:hover,
+.operation[data-operation="sqrt"]:hover,
+.operation[data-operation="exp"]:hover,
+.operation[data-operation="^2"]:hover {
+    background: #3395ff;
+}
+
+.operation[data-operation="="] {
+    background: #34c759;
+    color: white;
+    font-weight: bold;
+}
+
+.operation[data-operation="="]:hover {
+    background: #2db24d;
+}
+
+@media (max-width: 480px) {
+    .calculator {
+        max-width: 350px;
+        padding: 15px;
+    }
+    
+    .btn {
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    
+    .display {
+        height: 120px;
+        padding: 25px 15px;
+    }
+    
+    .current-operand {
+        font-size: 2.5rem;
+    }
+    
+    .info p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .calculator {
+        max-width: 300px;
+        padding: 12px;
+    }
+    
+    .btn {
+        height: 55px;
+        font-size: 1.1rem;
+    }
+    
+    .display {
+        height: 110px;
+        padding: 20px 12px;
+    }
+    
+    .current-operand {
+        font-size: 2rem;
+    }
+    
+    .info p {
+        font-size: 0.7rem;
+        padding: 8px;
+    }
+}
